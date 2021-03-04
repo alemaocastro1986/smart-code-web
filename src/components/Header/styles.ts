@@ -10,7 +10,14 @@ export const Container = styled.nav`
   justify-content: space-between;
 
   img {
-    height: 40px;
+    max-width: 180px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 20px;
+    img {
+      width: 120px;
+    }
   }
 
   button {
