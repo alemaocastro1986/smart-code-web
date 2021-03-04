@@ -45,6 +45,10 @@ const SignIn: React.FC = () => {
     <Container>
       <div>
         <img src={logo} alt="smart_code_logo" />
+
+        <h1>
+          Login<span>.</span>
+        </h1>
         <form onSubmit={handleSubmit}>
           <Input
             label="Usuário"
@@ -65,6 +69,9 @@ const SignIn: React.FC = () => {
 
           <button type="submit">{loading ? 'Aguarde...' : 'Entrar'}</button>
         </form>
+        <footer>
+          © 2021 In-haus - Logística. Todos os direito reservados.
+        </footer>
       </div>
     </Container>
   );
