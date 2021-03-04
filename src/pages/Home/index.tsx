@@ -25,33 +25,35 @@ function Home() {
       try {
         setLoading(true);
         const schema = Yup.object().shape({
+          product: Yup.string().required(),
+          net_weight: Yup.string().required(),
+          lot_bobine: Yup.string(),
+          identifier: Yup.string(),
+          lot_factory: Yup.string(),
           alloy: Yup.string(),
-          along: Yup.string(),
+          quenching: Yup.string(),
           application_type: Yup.string().required(),
           client_code: Yup.string(),
-          earing: Yup.string(),
-          estimated_length: Yup.string(),
-          external_varnish: Yup.string(),
+          order: Yup.string().required(),
           gross_weight: Yup.string(),
-          identifier: Yup.string(),
-          internal_varnish: Yup.string(),
-          le: Yup.string(),
-          lot_bobine: Yup.string().required(),
-          lot_factory: Yup.string(),
-          lr: Yup.string(),
-          net_weight: Yup.string().required(),
-          nominal_thickness: Yup.string(),
-          order: Yup.string(),
-          post_lube: Yup.string(),
-          product: Yup.string().required(),
-          quenching: Yup.string(),
-          real_thickness: Yup.string(),
-          sigma: Yup.string(),
-          spread: Yup.string(),
           tare: Yup.string(),
+          nominal_thickness: Yup.string(),
+          real_thickness: Yup.string(),
+          estimated_length: Yup.string(),
           thickness_rating: Yup.string().required(),
+          sigma: Yup.string(),
+          le: Yup.string(),
+          lr: Yup.string(),
+          spread: Yup.string(),
+          along: Yup.string(),
+          earing: Yup.string(),
+          post_lube: Yup.string(),
           tolling: Yup.string(),
           water_mark: Yup.string(),
+          external_varnish: Yup.string(),
+          internal_varnish: Yup.string(),
+          lubricating_weight: Yup.string(),
+          date: Yup.string(),
         });
 
         const formdata = new FormData(e.target as HTMLFormElement);
@@ -92,6 +94,7 @@ function Home() {
           });
           return;
         }
+        console.error(err);
 
         toast.error(
           'Erro ao salvar os dados, verifique sua conexão, ou contate o administrador',

@@ -34,13 +34,14 @@ class BarcodeParser {
       '(220)': 'water_mark',
       '(230)': 'external_varnish',
       '(240)': 'internal_varnish',
-      '(250)': 'lubricating weight',
+      '(250)': 'lubricating_weight',
+      '(260)': 'date',
     };
   }
 
   parser(barcode: string) {
     const regex = new RegExp(/\([0-9][0-9]?[0-9]?[0-9]\)*/gm);
-    const values = barcode.split(regex).filter((x) => x.length !== 0);
+    const [, ...values] = barcode.split(regex);
     const keys: string[] = barcode.match(regex) || [];
 
     let obj: ICodeMap = {};
