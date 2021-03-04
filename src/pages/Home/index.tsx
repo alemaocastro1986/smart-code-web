@@ -61,6 +61,8 @@ function Home() {
 
         const barcode = Barcode.parser(`${barcodeString}`);
 
+        console.log(barcode);
+
         await schema.validate(barcode, {
           abortEarly: false,
         });

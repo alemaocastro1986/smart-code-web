@@ -50,7 +50,7 @@ const AuthProvider: React.FC = ({ children }) => {
       const { user, token } = response.data;
 
       localStorage.setItem('@SmartCode:user', JSON.stringify(user));
-      localStorage.setItem('@SmartCode:token', JSON.stringify(token));
+      localStorage.setItem('@SmartCode:token', token);
 
       setData({ user, token });
     },
@@ -59,6 +59,7 @@ const AuthProvider: React.FC = ({ children }) => {
 
   const signOut = useCallback(() => {
     localStorage.removeItem('@SmartCode:user');
+    localStorage.removeItem('@SmartCode:token');
     setData({} as IUserData);
   }, []);
 
